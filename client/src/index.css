@@ -61,9 +61,18 @@
 .btn-tactile {
   border: 1px solid #1C1D21;
   box-shadow: 2px 2px 0px 0px #1C1D21;
-  transition: transform 75ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 75ms cubic-bezier(0.16, 1, 0.3, 1), background-color 75ms ease;
+  transition: transform 140ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 140ms cubic-bezier(0.16, 1, 0.3, 1), background-color 140ms ease, color 140ms ease, border-color 140ms ease, filter 140ms ease;
   cursor: pointer;
   user-select: none;
+}
+
+.btn-tactile:hover:not(:disabled) {
+  filter: brightness(0.94) saturate(0.96);
+}
+
+.btn-tactile:focus-visible {
+  outline: 2px solid #C88A2D;
+  outline-offset: 2px;
 }
 
 .btn-tactile:active:not(:disabled) {
@@ -75,6 +84,12 @@
   opacity: 0.45;
   cursor: not-allowed;
   box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-tactile {
+    transition-duration: 0ms;
+  }
 }
 
 /* Crisp Paper Card Surface */
